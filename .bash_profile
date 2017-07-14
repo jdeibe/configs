@@ -8,8 +8,12 @@ export PS1="\`pwd\` \$ "            #fullpath current folder $
 #------------------------------------------------------------
 #   Set Paths
 #------------------------------------------------------------
+#export ANDROID_HOME=/Users/jonasdeibe/Library/Android/sdk
+export ANDROID_HOME=~/Library/Android/sdk
+
 export PATH="$PATH:/usr/local/bin/"
-export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+#export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ----------------------------------------------------------/Users/jonasdeibe/.bash_profile
@@ -49,7 +53,7 @@ alias .3='cd ../../../'                     # Go back 3 directory levels
 alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
-alias edit='code'                           # edit:         Opens any file in Visual studio code
+alias edit='atom'                           # edit:         Opens any file in atom/Visual studio code
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
@@ -65,21 +69,6 @@ alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-#------------------------------------------------------------
-#   Visual studio from terminal
-#------------------------------------------------------------
-#code opens Visual Studio Code 
-#code . opens current directory in Visual Studio Code 
-#code somefile opens somefile in Visual Studio Code
-code () {  
-    if [[ $# = 0 ]]
-    then
-        open -a "Visual Studio Code"
-    else
-        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-        open -a "Visual Studio Code" --args "$F"
-    fi
-}
 
 #------------------------------------------------------------
 #  Bash completions
@@ -93,19 +82,22 @@ fi
 #------------------------------------------------------------
 #  Docker
 #------------------------------------------------------------
+#docker-machine start default
+#VM_NAME=default
+#if [ "$(docker-machine status $VM_NAME)" == "Running" ]; then
+#  echo "Setting environment variables for docker-machine $VM_NAME..."
+#  eval "$(docker-machine env $VM_NAME)"
+#fi
 
-VM_NAME=default
-if [ "$(docker-machine status $VM_NAME)" == "Running" ]; then
-  echo "Setting environment variables for docker-machine $VM_NAME..."
-  eval "$(docker-machine env $VM_NAME)"
-fi
-
+alias cleanContainers='docker rm `docker ps -aq -f status=exited`'
+alias listContainers='docker ps -a'
+export DOCKERCLOUD_NAMESPACE=hiotlabs
 
 #------------------------------------------------------------
 #   NETWORKING
 #------------------------------------------------------------
 
-alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
+alias myip='curl ifconfig.co'                    # myip:         Public facing IP Address
 alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
 alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
@@ -175,5 +167,5 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 #
 #
 #------------------------------------------------------------
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
