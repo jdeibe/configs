@@ -8,15 +8,19 @@ export PS1="\`pwd\` \$ "            #fullpath current folder $
 #------------------------------------------------------------
 #   Set Paths
 #------------------------------------------------------------
-#export ANDROID_HOME=/Users/jonasdeibe/Library/Android/sdk
+
 export ANDROID_HOME=~/Library/Android/sdk
+
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 export PATH="$PATH:/usr/local/bin/"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-#export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
-#   Set Default Editor (change 'Nano' to the editor of your choice)
-#   ----------------------------------------------------------/Users/jonasdeibe/.bash_profile
+# Set Default Editor (change 'Nano' to the editor of your choice)
 export EDITOR=/usr/bin/nano
 
 #   Set default blocksize for ls, df, du
@@ -82,15 +86,9 @@ fi
 #------------------------------------------------------------
 #  Docker
 #------------------------------------------------------------
-#docker-machine start default
-#VM_NAME=default
-#if [ "$(docker-machine status $VM_NAME)" == "Running" ]; then
-#  echo "Setting environment variables for docker-machine $VM_NAME..."
-#  eval "$(docker-machine env $VM_NAME)"
-#fi
-
 alias cleanContainers='docker rm `docker ps -aq -f status=exited`'
 alias listContainers='docker ps -a'
+
 export DOCKERCLOUD_NAMESPACE=hiotlabs
 
 #------------------------------------------------------------
@@ -161,11 +159,12 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 #   DEV MANAGEMENT
 #------------------------------------------------------------
 
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-#------------------------------------------------------------
-#
-#
-#
-#------------------------------------------------------------
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/"%#&%"&#!/#(!/#("#("#/("#/("#("#/(DUGYWYDBVHVYGWUET/google-cloud-sdk/path.bash.inc' ]; then source '/Users/"%#&%"&#!/#(!/#("#("#/("#/("#("#/(DUGYWYDBVHVYGWUET/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/"%#&%"&#!/#(!/#("#("#/("#/("#("#/(DUGYWYDBVHVYGWUET/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/"%#&%"&#!/#(!/#("#("#/("#/("#("#/(DUGYWYDBVHVYGWUET/google-cloud-sdk/completion.bash.inc'; fi
