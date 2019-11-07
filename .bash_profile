@@ -2,7 +2,6 @@
 #------------------------------------------------------------
 #   Command prompt
 #------------------------------------------------------------
-#export PS1='\u@\H:\w$'             #loggedin@machinename:~/
 export PS1="\`pwd\` \$ "            #fullpath current folder $
 
 #------------------------------------------------------------
@@ -20,7 +19,8 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH:/usr/local/bin/"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
-# Set Default Editor (change 'Nano' to the editor of your choice)
+#   Set Default Editor (change 'Nano' to the editor of your choice)
+#   ----------------------------------------------------------/Users/jonasdeibe/.bash_profile
 export EDITOR=/usr/bin/nano
 
 #   Set default blocksize for ls, df, du
@@ -67,7 +67,7 @@ alias show_options='shopt'                  # Show_options: display bash options
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
 mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
-#trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
+trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
@@ -86,6 +86,12 @@ fi
 #------------------------------------------------------------
 #  Docker
 #------------------------------------------------------------
+#docker-machine start default
+#VM_NAME=default
+#if [ "$(docker-machine status $VM_NAME)" == "Running" ]; then
+#  echo "Setting environment variables for docker-machine $VM_NAME..."
+#  eval "$(docker-machine env $VM_NAME)"
+#fi
 alias cleanContainers='docker rm `docker ps -aq -f status=exited`'
 alias listContainers='docker ps -a'
 
@@ -162,9 +168,12 @@ my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/"%#&%"&#!/#(!/#("#("#/("#/("#("#/(DUGYWYDBVHVYGWUET/google-cloud-sdk/path.bash.inc' ]; then source '/Users/"%#&%"&#!/#(!/#("#("#/("#/("#("#/(DUGYWYDBVHVYGWUET/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/Users/jonasdeibe/hiotlabs/google-cloud-sdk/path.bash.inc' ]; then source '/Users/jonasdeibe/hiotlabs/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/"%#&%"&#!/#(!/#("#("#/("#/("#("#/(DUGYWYDBVHVYGWUET/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/"%#&%"&#!/#(!/#("#("#/("#/("#("#/(DUGYWYDBVHVYGWUET/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/Users/jonasdeibe/hiotlabs/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/jonasdeibe/hiotlabs/google-cloud-sdk/completion.bash.inc'; fi
