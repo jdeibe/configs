@@ -1,0 +1,51 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export PATH=/opt/homebrew/bin:$PATH
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
+zstyle ':vcs_info:*' enable git
+
+#------------------------------------------------------------
+#   MAKE TERMINAL BETTER
+#------------------------------------------------------------
+alias cp='cp -iv'                           # Preferred 'cp' implementation
+alias mv='mv -iv'                           # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+#alias ll='ls -alFG'
+alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
+alias ls='ls -F'                            # -F appends a character revealing the nature of a file, for example, * for an executable, or / for a directory. Regular files have no suffix.
+alias less='less -FSRXc'                    # Preferred 'less' implementation
+cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+alias edit='atom'                           # edit:         Opens any file in atom/Visual studio code
+alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
+alias ~="cd ~"                              # ~:            Go Home
+alias c='clear'                             # c:            Clear terminal display
+alias which='type -all'                     # which:        Find executables
+alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+alias show_options='shopt'                  # Show_options: display bash options settings
+alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
+alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
+mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
+ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
+alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
