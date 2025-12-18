@@ -26,8 +26,8 @@ brew install spectacle
 #brew install brisync
 brew install cleanshot #make good gifs or screenshoots
 brew install dropbox
-brew install figma #mockup for apps
-brew install firefox
+#brew install figma #mockup for apps
+#brew install firefox
 brew install google-chrome
 brew install imagealpha
 brew install imageoptim
