@@ -24,6 +24,7 @@ brew install 1password
 brew install rectangle          # window manager (replaces Spectacle)
 #brew install spectacle
 brew install cleanshot          # screenshots / gifs
+brew install --cask steipete/tap/codexbar
 brew install docker            # Docker Desktop
 brew install dropbox
 brew install google-chrome
