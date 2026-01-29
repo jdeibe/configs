@@ -70,7 +70,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-completions zsh-claudecode-completion)
+plugins=(git zsh-autosuggestions zsh-completions)
+
+# Claude completion: use plugin dir in fpath so we don't run the plugin's copy (avoids "overwrite _claude? (y/n)" from cp -i)
+[[ -d "$ZSH/custom/plugins/zsh-claudecode-completion" ]] && fpath=("$ZSH/custom/plugins/zsh-claudecode-completion" $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,6 +81,12 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-grouped
 zstyle ':completion:*' format '%F{yellow}-- %d --%f'
+
+# Reload completions so custom plugins (e.g. claude) are picked up (Oh My Zsh runs compinit before plugins load)
+autoload -Uz compinit && compinit
+
+# zsh-autosuggestions: gray text = history suggestion. Right Arrow = accept bit by bit; End = accept whole line
+bindkey '^[[F' autosuggest-accept
 
 # User configuration
 

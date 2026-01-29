@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# Install zsh-autosuggestions and zsh-completions for richer tab-completion
-# (menus, descriptions, history-based suggestions).
+# Install zsh plugins: autosuggestions, completions, and Claude CLI completion.
+# (Menus/descriptions for tab-completion; history suggestions; claude -- Tab.)
 #
 # Requires: Oh My Zsh (run zsh.sh first).
 #
@@ -33,7 +33,7 @@ install_plugin() {
   fi
 }
 
-echo "Installing zsh completion plugins..."
+echo "Installing zsh plugins..."
 install_plugin zsh-autosuggestions       zsh-users/zsh-autosuggestions
 install_plugin zsh-completions           zsh-users/zsh-completions
 install_plugin zsh-claudecode-completion wbingli/zsh-claudecode-completion
@@ -41,11 +41,10 @@ install_plugin zsh-claudecode-completion wbingli/zsh-claudecode-completion
 echo ""
 echo "Plugins installed to $CUSTOM_PLUGINS"
 echo ""
-echo "To enable them, add to the plugins=() line in your .zshrc:"
-echo "  plugins=(git zsh-autosuggestions zsh-completions zsh-claudecode-completion)"
+echo "To enable them, use this repo's .zshrc (it already has the right config):"
+echo "  plugins=(git zsh-autosuggestions zsh-completions)"
+echo "  + fpath entry for Claude completion (no plugin entry; avoids overwrite prompt)"
 echo ""
-echo "If you use this repo's dotfiles, the cloned .zshrc has been updated."
-echo "Run replicate.sh --dotfiles to copy it, or edit ~/.zshrc manually."
-echo "Then start a new shell or run: source ~/.zshrc"
-echo "For zsh-completions to take effect you may need to run: rm -f ~/.zcompdump && compinit"
+echo "  cp $SCRIPT_DIR/cloned/dotfiles/.zshrc ~/.zshrc"
+echo "  rm -f ~/.zcompdump* && exec zsh"
 echo ""

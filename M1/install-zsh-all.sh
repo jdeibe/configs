@@ -19,4 +19,6 @@ echo "=== 2/2 zsh plugins (autosuggestions, completions, claude) ==="
 bash "$SCRIPT_DIR/zsh-plugins.sh"
 
 echo ""
-echo "Done. Start a new shell or run: exec zsh"
+echo "Done. To use the full config (completions, autosuggestions, claude):"
+echo "  cp $SCRIPT_DIR/cloned/dotfiles/.zshrc ~/.zshrc"
+echo "  rm -f ~/.zcompdump* && exec zsh"
