@@ -47,7 +47,8 @@ brew services start syncthing
 # Node & yarn & npm
 brew install node
 brew install yarn
-ibrew "Schniz/tap/fnm" # This cannot be installed under arm64 yet
+brew tap Schniz/tap 2>/dev/null || true
+brew install fnm 2>/dev/null || true  # Node version manager
 
 # NPM settings
 npm config set loglevel warn

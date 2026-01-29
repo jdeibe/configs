@@ -1,0 +1,7 @@
+{
+    "window.commandCenter": true,
+    "claudeCode.preferredLocation": "sidebar",
+    "claudeCode.useTerminal": true,
+    "update.releaseTrack": "prerelease",
+    "cursor.composer.usageSummaryDisplay": "always"
+}

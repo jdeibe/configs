@@ -15,10 +15,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "OkoMac"
-sudo scutil --set HostName "OkoMac"
-sudo scutil --set LocalHostName "OkoMac"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "OkoMac"
+sudo scutil --set ComputerName "jakemacx"
+sudo scutil --set HostName "jakemacx"
+sudo scutil --set LocalHostName "jakemacx"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "jakemacx"
 
 # Disable font smoothing
 defaults -currentHost write -g AppleFontSmoothing -int 0
@@ -599,7 +599,7 @@ sudo pmset -b panicrestart 15
 sudo pmset -c sleep 30
 
 # Display sleep: 10 min
-sudo mset -c displaysleep 10
+sudo pmset -c displaysleep 10
 
 # Put the hard disk(s) to sleep when possible: 10 min
 sudo pmset -c disksleep 10
@@ -634,7 +634,7 @@ for app in "Activity Monitor" \
 	"Photos" \
 	"Safari" \
 	"SizeUp" \
-	"Spectacle" \
+	"Rectangle" \
 	"SystemUIServer" \
 	"Terminal" \
 	"Transmission" \

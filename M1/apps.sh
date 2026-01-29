@@ -21,20 +21,21 @@ mas install 411643860 # DaisyDisk
 
 # Install casks
 brew install 1password
-brew install spectacle
-#brew install adobe-creative-cloud
-#brew install brisync
-brew install cleanshot #make good gifs or screenshoots
+brew install rectangle          # window manager (replaces Spectacle)
+#brew install spectacle
+brew install cleanshot          # screenshots / gifs
+brew install docker            # Docker Desktop
 brew install dropbox
-#brew install figma #mockup for apps
-#brew install firefox
 brew install google-chrome
 brew install imagealpha
 brew install imageoptim
 brew install java
-brew install qlstephen #colors 2-monitor
-#brew install qsyncthingtray
+brew install orbstack           # Docker/containers alternative (lightweight)
+brew install qlstephen         # QuickLook
 brew install slack
+#brew install adobe-creative-cloud
+#brew install figma #mockup for apps
+#brew install firefox
 #brew install sublime-text #text-editor
 #brew install tunnelblick #vpn
 #brew install xld #soundfiles

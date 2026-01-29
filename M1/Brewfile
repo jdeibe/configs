@@ -1,0 +1,59 @@
+tap "steipete/tap"
+tap "stripe/stripe-cli"
+tap "supabase/tap"
+brew "cask"
+brew "diff-so-fancy"
+brew "node"
+brew "gemini-cli"
+brew "gh"
+brew "git"
+brew "git-extras"
+brew "grep"
+brew "libpq"
+brew "mas"
+brew "openjdk"
+brew "pnpm"
+brew "python@3.14"
+brew "supabase"
+brew "syncthing", restart_service: :changed
+brew "tree"
+brew "vercel-cli"
+brew "xterm"
+brew "yarn"
+brew "zplug"
+brew "zsh"
+brew "stripe/stripe-cli/stripe"
+cask "1password"
+cask "claude-code"
+cask "cleanshot"
+cask "steipete/tap/codexbar"
+cask "cursor"
+cask "dropbox"
+cask "imagealpha"
+cask "imageoptim"
+cask "iterm2"
+cask "qlcolorcode"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "quicklook-json"
+cask "slack"
+cask "visual-studio-code"
+mas "ClipShelf", id: 6755394430
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "NordLayer", id: 1488888843
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "The Unarchiver", id: 425424353
+mas "WhatsApp", id: 310633997
+mas "Xcode", id: 497799835
+vscode "anthropic.claude-code"
+vscode "esbenp.prettier-vscode"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
