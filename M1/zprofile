@@ -180,3 +180,7 @@ if [ -f '/Users/jonasdeibe/hiotlabs/google-cloud-sdk/path.bash.inc' ]; then sour
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jonasdeibe/hiotlabs/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/jonasdeibe/hiotlabs/google-cloud-sdk/completion.bash.inc'; fi
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
