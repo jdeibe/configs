@@ -19,6 +19,9 @@ mas install 1107421413 # 1Blocker
 mas install 409201541 # Pages
 mas install 411643860 # DaisyDisk
 
+# libpq (PostgreSQL client)
+brew install libpq && brew link --force libpq 2>&1
+
 # Install casks
 brew install 1password
 brew install rectangle          # window manager (replaces Spectacle)
