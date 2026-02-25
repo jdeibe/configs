@@ -8,7 +8,7 @@
 #   - This repo cloned (e.g. into ~/repos/configs)
 #
 # Usage:
-#   cd ~/repos/configs/M1
+#   cd ~/repos/configs/M4
 #   ./replicate.sh              # full: dotfiles + brew + editor settings
 #   ./replicate.sh --dotfiles   # only copy dotfiles and ssh config
 #   ./replicate.sh --brew       # only run Brewfile

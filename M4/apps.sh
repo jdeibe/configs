@@ -37,6 +37,11 @@ brew install java
 brew install orbstack           # Docker/containers alternative (lightweight)
 brew install qlstephen         # QuickLook
 brew install slack
+brew install lazygit
+brew install glow
+brew install neovim
+brew install llmfit
+brew install arimxyer/tap/models
 #brew install adobe-creative-cloud
 #brew install figma #mockup for apps
 #brew install firefox

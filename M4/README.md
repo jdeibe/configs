@@ -1,4 +1,4 @@
-# M1 / Apple Silicon Mac setup
+# M4 / Apple Silicon Mac setup
 
 Scripts to set up and replicate your Mac environment (e.g. from a MacBook to a Mac Studio).
 
@@ -9,11 +9,11 @@ Scripts to set up and replicate your Mac environment (e.g. from a MacBook to a M
 Clone your current settings into this repo:
 
 ```bash
-cd ~/repos/configs/M1
+cd ~/repos/configs/M4
 ./clone-settings.sh
 ```
 
-This copies into `M1/cloned/`:
+This copies into `M4/cloned/`:
 
 - **Dotfiles:** `.gitconfig`, `.zshrc`, `.zprofile`, `.npmrc` (tokens in `.zshrc` are redacted)
 - **SSH:** `config` and `known_hosts` only (never private keys)
@@ -29,7 +29,7 @@ Commit and push so the new Mac can pull the repo.
 Clone this repo, then run:
 
 ```bash
-cd ~/repos/configs/M1
+cd ~/repos/configs/M4
 ./replicate.sh
 ```
 
