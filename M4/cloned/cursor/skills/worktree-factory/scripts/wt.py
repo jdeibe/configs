@@ -192,7 +192,19 @@ def inspect_worktree(wt: dict[str, Any], primary_root: Path, default_branch: str
             base_ref = default_branch
         cnt = run_git(p, "rev-list", "--count", f"{base_ref}..HEAD")
         if cnt.returncode == 0 and cnt.stdout.strip().isdigit():
-            info["commits_ahead_of_main"] = int(cnt.stdout.strip())
+            raw_ahead = int(cnt.stdout.strip())
+            if raw_ahead > 0:
+                cherry = run_git(p, "cherry", base_ref, "HEAD")
+                if cherry.returncode == 0:
+                    unapplied = [
+                        ln for ln in cherry.stdout.splitlines() if ln.startswith("+ ")
+                    ]
+                    info["commits_ahead_of_main"] = len(unapplied)
+                    info["cherry_picked_into_main"] = len(unapplied) == 0
+                else:
+                    info["commits_ahead_of_main"] = raw_ahead
+            else:
+                info["commits_ahead_of_main"] = 0
             info["merged_into_main"] = info["commits_ahead_of_main"] == 0
 
     return info
