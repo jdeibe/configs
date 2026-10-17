@@ -106,12 +106,24 @@ if [[ $do_brew -eq 1 ]] && [[ -f "$SCRIPT_DIR/Brewfile" ]]; then
 fi
 
 # ---- Cursor ----
-if [[ $do_cursor -eq 1 ]] && [[ -f "$CLONED_DIR/cursor/settings.json" ]]; then
-  CURSOR_USER="$HOME_DIR/Library/Application Support/Cursor/User"
-  mkdir -p "$CURSOR_USER"
-  cp "$CLONED_DIR/cursor/settings.json" "$CURSOR_USER/settings.json"
-  [[ -f "$CLONED_DIR/cursor/keybindings.json" ]] && cp "$CLONED_DIR/cursor/keybindings.json" "$CURSOR_USER/keybindings.json"
-  echo "Cursor settings installed."
+if [[ $do_cursor -eq 1 ]]; then
+  if [[ -f "$CLONED_DIR/cursor/settings.json" ]]; then
+    CURSOR_USER="$HOME_DIR/Library/Application Support/Cursor/User"
+    mkdir -p "$CURSOR_USER"
+    cp "$CLONED_DIR/cursor/settings.json" "$CURSOR_USER/settings.json"
+    [[ -f "$CLONED_DIR/cursor/keybindings.json" ]] && cp "$CLONED_DIR/cursor/keybindings.json" "$CURSOR_USER/keybindings.json"
+    echo "Cursor settings installed."
+  fi
+  if [[ -d "$CLONED_DIR/cursor/skills" ]]; then
+    mkdir -p "$HOME_DIR/.cursor/skills" "$HOME_DIR/.claude/skills"
+    rsync -a "$CLONED_DIR/cursor/skills/" "$HOME_DIR/.cursor/skills/"
+    for skill_dir in "$HOME_DIR/.cursor/skills"/*/; do
+      [[ -d "$skill_dir" ]] || continue
+      skill_name="$(basename "$skill_dir")"
+      ln -sfn "$HOME_DIR/.cursor/skills/$skill_name" "$HOME_DIR/.claude/skills/$skill_name"
+    done
+    echo "Cursor & Claude skills installed."
+  fi
 fi
 
 # ---- VSCode ----

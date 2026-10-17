@@ -57,6 +57,11 @@ if [[ -f "$CURSOR_USER/keybindings.json" ]]; then
   cp "$CURSOR_USER/keybindings.json" "$CLONED_DIR/cursor/keybindings.json"
   echo "  cloned cursor/keybindings.json"
 fi
+if [[ -d "$HOME_DIR/.cursor/skills" ]]; then
+  mkdir -p "$CLONED_DIR/cursor/skills"
+  rsync -a --delete --copy-links "$HOME_DIR/.cursor/skills/" "$CLONED_DIR/cursor/skills/"
+  echo "  cloned cursor/skills/"
+fi
 
 # ---- VSCode ----
 VSCODE_USER="$HOME_DIR/Library/Application Support/Code/User"
