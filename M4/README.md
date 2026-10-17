@@ -18,7 +18,7 @@ This copies into `M4/cloned/`:
 - **Dotfiles:** `.gitconfig`, `.zshrc`, `.zprofile`, `.npmrc` (tokens in `.zshrc` are redacted)
 - **SSH:** `config` and `known_hosts` only (never private keys)
 - **Homebrew:** `Brewfile` (all formulae and casks)
-- **Cursor:** `settings.json`, `keybindings.json`
+- **Cursor:** `settings.json`, `keybindings.json`, and `~/.cursor/skills/` (personal Agent Skills)
 - **VSCode:** `settings.json`
 - **Rectangle:** window manager preferences (`com.knollsoft.Rectangle.plist`)
 
@@ -46,7 +46,7 @@ This will:
 ./replicate.sh --dotfiles   # only dotfiles + ssh
 ./replicate.sh --brew       # only Brewfile
 ./replicate.sh --scripts   # only init, os, apps, zsh
-./replicate.sh --cursor    # only Cursor settings
+./replicate.sh --cursor    # only Cursor settings + Cursor/Claude skills (~/.cursor/skills & ~/.claude/skills)
 ./replicate.sh --vscode    # only VSCode settings
 ./replicate.sh --rectangle # only Rectangle window manager prefs
 ```
