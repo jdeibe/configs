@@ -126,6 +126,11 @@ fi
 # libpq (psql) so pnpm db:local:seed uses psql instead of Docker fallback
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# Worktree factory CLI shortcuts (radar / spawn / prune / harvest)
+wt() { python3 "$HOME/.cursor/skills/worktree-factory/scripts/wt.py" "$@"; }
+alias wtp='wt prune --include-stale-waves'          # dry-run
+alias wtpa='wt prune --include-stale-waves --apply' # remove
+
 # Added by Antigravity
 export PATH="/Users/jonasdeibe/.antigravity/antigravity/bin:$PATH"
 
