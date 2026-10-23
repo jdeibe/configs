@@ -131,6 +131,9 @@ wt() { python3 "$HOME/.cursor/skills/worktree-factory/scripts/wt.py" "$@"; }
 alias wtp='wt prune --include-stale-waves'          # dry-run
 alias wtpa='wt prune --include-stale-waves --apply' # remove
 
+# Disk cleanup (Homebrew, Docker unused, caches, inactive node_modules)
+diskclean() { "$HOME/.cursor/skills/disk-cleanup/scripts/cleanup.sh" "$@"; }
+
 # Added by Antigravity
 export PATH="/Users/jonasdeibe/.antigravity/antigravity/bin:$PATH"
 
